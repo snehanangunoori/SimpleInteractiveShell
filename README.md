@@ -52,43 +52,15 @@ gcc sish.c -o sish -Wall -Werror -std=gnu99
 
 ## 🧪 Test Cases
 
-```bash
-1. pwd
-2. touch a1 a2 a3 a4 a5 a6 a7 a8 a9 a10
-3. ls -l
-4. rm -f a1 a2 a3 a4 a5 a6 a7 a8 a9 a10
-5. echo helloooooooooooooooooooooooooooooooooooooooooooooo
-6. mkdir test
-7. cd test         # should work
-8. cd              # should return error
-9. history 0       # executes command at offset 0 (pwd)
-10. history -c     # clears history
-11. history        # should show only "history"
-12. exit
-```
+Please refer to the file **`testcases.txt`** for all test case inputs and expected behaviors.
 
-### History Overflow Check
+Ensure you test:
+
+- Basic command execution (`ls`, `pwd`, `echo`, etc.)
+- Built-in commands (`cd`, `exit`, `history`)
+- History overflow and offset execution
+- Piped commands (`ls | wc`, `cat hist100 | grep ... | wc`)
+
+You can also run:
 ```bash
 ./sish < hist100
-```
-
-Expected output:
-```
-0
-1
-...
-99
-```
-
-Only the last 100 commands should be preserved.
-
-
-
-### Pipe Testing
-```bash
-1. ls | wc
-2. find . -print | more
-3. echo hi | cat | cat
-4. cat hist100 | grep -v z -i | sort | uniq | wc -l
-   # Expected output: 6
-```
