@@ -1,4 +1,4 @@
-# Simple Interactive SHell (`sish`)
+# Simple Interactive Shell (`sish`)
 
 ## 👩‍💻 Overview
 
